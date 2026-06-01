@@ -30,8 +30,8 @@ parts:
     source: https://github.com/fenenko/ufoai
     source-type: git
     build-environment:
-      - CFLAGS: "$CFLAGS -Wno-narrowing"
-      - CXXFLAGS: "$CXXFLAGS -Wno-narrowing"
+      - CFLAGS: "-Wno-narrowing"
+      - CXXFLAGS: "-Wno-narrowing"
     build-packages:
       - make
       - gcc
