@@ -19,8 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Snap
-        id: snapcraft
-        uses: snapcore/action-build@v1
+        run: sg lxd -c "snapcraft pack"
+#id: snapcraft
+#uses: snapcore/action-build@v1
 
       - name: Upload Snap artifact
         uses: actions/upload-artifact@v4
