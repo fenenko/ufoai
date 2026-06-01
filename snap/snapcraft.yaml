@@ -34,4 +34,5 @@ parts:
       - ufoai
     override-build: |  
       echo "START BUILD"
+      ls ./
 
