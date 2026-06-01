@@ -10,7 +10,7 @@ confinement: strict
 website: https://github.com/fenenko/ufoai
 issues: https://github.com/fenenko/ufoai/issues 
 source-code: https://github.com/fenenko/ufoai
-adopt-info: ufoai-app
+adopt-info: '2.5.0'
 
 apps:
   ufoai:           
