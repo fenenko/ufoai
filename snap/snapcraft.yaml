@@ -1,6 +1,6 @@
 name: ufoai
 title: UFOAI game build for Snap 
-base: core20
+base: core22
 license: MIT
 summary: UFOAI game build for Snap  
 description: |
@@ -16,7 +16,7 @@ apps:
   ufoai:           
     command: ufoai
     common-id: com.github.fenenko.ufoai 
-    extensions: [gnome-3-38]
+    extensions: [gnome-42]
     plugs:             
       - desktop
       - home
