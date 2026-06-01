@@ -1,0 +1,72 @@
+name: ufoai
+title: UFOAI game build for Snap 
+base: core20
+license: MIT
+summary: UFOAI game build for Snap  
+description: |
+  **UFOAI** game build for Snap 
+grade: stable 
+confinement: strict
+website: https://github.com/fenenko/ufoai
+issues: https://github.com/fenenko/ufoai/issues 
+source-code: https://github.com/fenenko/ufoai
+adopt-info: ufoai-app
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+
+
+apps:
+  ufoai:           
+    command: ufoai
+    common-id: com.github.fenenko.ufoai 
+    extensions: [gnome]
+    plugs:             
+      - desktop
+      - home
+      - network
+      - x11
+      - wayland
+
+parts:
+  ufoai-app:       
+    plugin: nil
+    source: https://github.com/fenenko/ufoai
+    source-type: git
+    build-packages:
+      - make
+      - gcc
+      - g++
+      - git
+      - zip
+      - binutils-dev
+      - gettext
+      - libcurl4-openssl-dev
+      - libiberty-dev
+      - libjpeg-dev
+      - liblua5.4-dev
+      - libmxml-dev
+      - libpng-dev
+      - libsdl2-dev
+      - libsdl2-mixer-dev
+      - libsdl2-ttf-dev
+      - libvorbis-dev
+      - zlib1g-dev
+      - libtheora-dev
+      - libwebp-dev
+      - libxvidcore-dev  
+    stage-packages:
+    override-build: |  
+      echo "START BUILD"
+      git clone https://git.code.sf.net/p/ufoai/code ufoai-code
+      cd ufoai-code
+      git checkout ufoai_2.5.0
+      ./configure
+      make
+      make lang
+      make map
+      make pk3
+      make install
+
