@@ -12,12 +12,6 @@ issues: https://github.com/fenenko/ufoai/issues
 source-code: https://github.com/fenenko/ufoai
 adopt-info: ufoai-app
 
-platforms:
-  amd64:
-    build-on: [amd64]
-    build-for: [amd64]
-
-
 apps:
   ufoai:           
     command: ufoai
