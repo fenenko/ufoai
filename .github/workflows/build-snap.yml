@@ -19,7 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Snap
-        run: sg lxd -c "snapcraft pack"
+        run: |
+          sudo usermod -aG lxd $USER
+          sudo snapcraft pack
 #id: snapcraft
 #uses: snapcore/action-build@v1
 
