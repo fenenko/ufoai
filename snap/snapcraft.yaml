@@ -57,7 +57,7 @@ parts:
       - libtheora-dev
       - libwebp-dev
       - libxvidcore-dev  
-    stage-packages:
+    stage-packages: []
     override-build: |  
       echo "START BUILD"
       git clone https://git.code.sf.net/p/ufoai/code ufoai-code
