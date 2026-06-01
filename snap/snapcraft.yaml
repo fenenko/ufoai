@@ -30,8 +30,8 @@ parts:
     source: https://github.com/fenenko/ufoai
     source-type: git
     build-environment:
-      - CFLAGS: "-Wno-narrowing"
-      - CXXFLAGS: "-Wno-narrowing"
+      - CFLAGS: "-Wno-narrowing -Wexpansion-to-defined"
+      - CXXFLAGS: "-Wno-narrowing -Wexpansion-to-defined"
     build-packages:
       - make
       - gcc
@@ -68,6 +68,7 @@ parts:
       git clone https://git.code.sf.net/p/ufoai/code ufoai-code
       cd ufoai-code
       git checkout ufoai_2.5.0
+      find src/ -type f \( -name "*.cpp" -o -name "*.c" -o -name "*.h" \) -exec sed -i 's/\([a-zA-Z0-9_]\+\)->value\.element\.name/mxmlGetElement(\1)/g' {} +
       ./configure
       make
       make lang
