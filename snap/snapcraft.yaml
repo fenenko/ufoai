@@ -16,7 +16,7 @@ apps:
   ufoai:           
     command: ufoai
     common-id: com.github.fenenko.ufoai 
-    extensions: [gnome]
+    extensions: [gnome-3-38]
     plugs:             
       - desktop
       - home
