@@ -29,54 +29,9 @@ parts:
     plugin: nil
     source: https://github.com/fenenko/ufoai
     source-type: git
-    build-environment:
-      - CFLAGS: "-Wno-narrowing -Wno-expansion-to-defined -Wno-cpp"
-      - CXXFLAGS: "-Wno-narrowing -Wno-expansion-to-defined -Wno-cpp"
-    build-packages:
-      - make
-      - gcc
-      - g++
-      - git
-      - zip
-      - binutils-dev
-      - gettext
-      - libcurl4-openssl-dev
-      - libiberty-dev
-      - libjpeg-dev
-      - liblua5.4-dev
-      - libmxml-dev
-      - libpng-dev
-      - libsdl2-dev
-      - libsdl2-gfx-dev
-      - libsdl2-mixer-dev
-      - libsdl2-ttf-dev
-      - libvorbis-dev
-      - zlib1g-dev
-      - libtheora-dev
-      - libwebp-dev
-      - libxvidcore-dev 
-      - libglib2.0-dev
-      - libgtk2.0-dev
-      - libgtkglext1-dev
-      - libopenal-dev
-      - libxml2-dev
-      - mesa-common-dev
-#- liblua5.4-dev
-    stage-packages: []
+    build-packages: []
+    stage-packages:
+      - ufoai
     override-build: |  
       echo "START BUILD"
-      git clone https://git.code.sf.net/p/ufoai/code ufoai-code
-      cd ufoai-code
-      git checkout ufoai_2.5.0
-      find src/ -type f \( -name "*.cpp" -o -name "*.c" -o -name "*.h" \) -exec sed -i 's/\([a-zA-Z0-9_]\+\)->value\.element\.name/mxmlGetElement(\1)/g' {} +
-      ./configure
-      make
-      echo "FINISH make"
-      make lang
-      echo "FINISH make lang"
-      make map
-      echo "FINISH make map"
-      make pk3
-      echo "FINISH make pk3"
-      make install
 
