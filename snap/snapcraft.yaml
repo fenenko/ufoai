@@ -30,8 +30,8 @@ parts:
     source: https://github.com/fenenko/ufoai
     source-type: git
     build-environment:
-      - CFLAGS: "-Wno-narrowing -Wexpansion-to-defined"
-      - CXXFLAGS: "-Wno-narrowing -Wexpansion-to-defined"
+      - CFLAGS: "-Wno-narrowing -Wno-expansion-to-defined"
+      - CXXFLAGS: "-Wno-narrowing -Wno-expansion-to-defined"
     build-packages:
       - make
       - gcc
@@ -71,8 +71,12 @@ parts:
       find src/ -type f \( -name "*.cpp" -o -name "*.c" -o -name "*.h" \) -exec sed -i 's/\([a-zA-Z0-9_]\+\)->value\.element\.name/mxmlGetElement(\1)/g' {} +
       ./configure
       make
+      echo "FINISH make"
       make lang
+      echo "FINISH make lang"
       make map
+      echo "FINISH make map"
       make pk3
+      echo "FINISH make pk3"
       make install
 
